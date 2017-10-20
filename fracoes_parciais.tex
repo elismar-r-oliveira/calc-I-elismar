@@ -1,0 +1,165 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amstext,amsthm,amsfonts,latexsym,bm}
+\usepackage[dvips]{graphicx}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+%\usepackage{epsfig}
+\usepackage{epsfig}
+\usepackage{pst-math}
+\usepackage{pst-plot,pstricks}
+\input{pst-math}
+%\usepackage{pst-plot,pstricks-add}
+
+\pagestyle{empty}
+
+\setlength{\topmargin}{-2.5cm} \setlength{\oddsidemargin}{-1cm} %%% top margin -3
+\setlength{\evensidemargin}{1cm} \setlength{\textheight}{25cm}
+\setlength{\textwidth}{18cm}
+
+%\setlength{\fboxsep}{-0,01cm}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+\newcommand{\ii}{\'{\i}}
+\newcommand{\cao}{\c{c}\~ao}
+\newcommand{\coes}{\c{c}\~oes}
+\newcommand{\sen}{\mbox{sen} \, }
+\newcommand{\tg}{\mbox{tg} \, }
+\newcommand{\arctg}{\mbox{arctg} \, }
+
+\newcommand{\cIm}{\mathcal Im}
+
+\newcommand{\RR}{\mathbb R}
+
+\newsymbol \leqslant 1336
+\newsymbol\geqslant 133E
+
+\linespread{1.0}
+
+\begin{document}
+\noindent
+    \begin{center}
+    {\Large{\bf Integração de Funções Racionais por Frações Parciais}}
+    \end{center}
+\vspace{.5cm}
+
+Esta técnica se aplica a integração de quociente de polinômios(funções racionais)\\Exemplo:
+
+\begin{center}
+\begin{minipage}[c]{6cm}
+ $\displaystyle\int\frac{10x+3}{5x^{2}+3x+11}\; dx$
+\end{minipage}
+\begin{minipage}[c]{6cm}
+$u=5x^{2}+3x+11\\\;du=10x+3\;dx$
+\end{minipage}
+\end{center}
+
+\vspace{.5cm}
+$$\displaystyle\int\frac{1}{u}\;du=\ln|u|+c=\ln|5x^{2}+3x+11|+c$$
+\begin{center}
+    {\Large{\bf Técnica para decomposição em Frações Parciais}}
+\end{center}
+\vspace{.5cm} a)$\displaystyle\int\frac{4x^{2}+13x-9}{x^{3}+2x^{2}-3}\;dx$
+\; Note que o grau do numerador é menor que a do denominador, ou seja, temos
+
+\qquad \qquad\qquad \qquad \; \; uma fração própria.\\
+
+1)Decompomos o denominador $x^{3}+2x^{2}-3x$.
+ Colocando o x em evidência, temos que:\\
+ $$x^{3}+2x^{2}-3x=x(x^{2}+2x-3)$$ \\
+
+   Resolvendo a equação $x^{3}+2x^{2}-3x=0$, obtemos as raízes 0, -3 e 1.Logo,\\   $$x(x^{2}+2x-3)= x(x+3)(x-1)$$
+
+2)Determinamos as constantes reais A, B e C,tais que:
+\begin{align*}
+ \displaystyle\frac{4x^{2}+13x-9}{x^{3}+2x^{2}-3}=&\frac{A}{x}+\frac{B}{x+3}+\frac{C}{x-1}\\
+   =&
+\frac{A(x+3)(x-1)+Bx(x-1)+Cx(x+3)}{x(x+3)(x-1)}\\
+\end{align*}
+
+3)Igualamos os numeradores \\
+
+$\displaystyle 4x^{2}+13x-9= A(x+3)(x-1)+Bx(x-1)+Cx(x+3)$
+
+Para determinarmos as constantes A,B e C, substituímos uma a uma, as raízes do denominador.\\
+$\cdot Se\; x=0, $ temos :\\
+$4.0^{2}+13.0-9= A(0+3)(0-1)+B.0(0-1)+C.0(0+3)$\\
+$-9=A.(3).(-1)+0+0$\\
+$-3A=-9\Rightarrow A=3$\\
+$\cdot Se\;x=1,$ temos:\\
+$4.1^{2}+13.1-9= A(1+3)(1-1)+B.1(1-1)+C.1(1+3)$\\
+$8=A.(4).(0)+B.0+C.(4)\Rightarrow8=0+0+4C$\\
+$4C=8\Rightarrow C=2$\\
+$\cdot Se\; x=-3, $ temos :\\
+$4.(-3)^{2}+13.(-3)-9= A(-3+3)(-3-1)+B.(-3).(-3-1)+C.(-3).(-3+3)$\\
+$-12=A.(0).(-4)+B(-3).(-4)+C(-3).0 \Rightarrow-12=0+12B+0$\\
+$12B=-12\Rightarrow B=-1$\\
+Logo,\\
+
+\begin{align*}
+  \int\frac{4x^{2}+13x-9}{x^{3}+2x^{2}-3}dx= & \int\frac{3}{x}dx+\int\frac{-1}{x+3}dx+\int\frac{2}{x-1}dx\\
+   =& -3\int\frac{1}{x}dx-1\int\frac{1}{x+3} dx+2\int\frac{1}{x-1}dx\\
+   =& 3\ln|x|-\ln|x+3|+2\ln|x-1|+C
+\end{align*}
+
+Observação: Esse método só vale se as raízes tiverem multiplicidade igual a 1. Caso uma ou mais raízes tenham multiplicidade maior que 1, devemos montar um sistema linear para encontrar as constantes.\\
+
+b) $\displaystyle\int\frac{x^3-6x^2+5x-3}{x^2-1}\;dx$
+Se o grau do numerador é maior ou igual ao grau do denominador, a fração no integrando é dita imprópria, e neste caso devemos primeiro dividir o numerador pelo denominador para obter uma fração própria e então aplicar o método visto acima.
+
+Dividindo:\\
+$$\frac{x^3-6x^2+5x-3}{x^2-1}= x-6 + \frac{6x-9}{x^2-1} $$
+Assim,
+\begin{align*}
+  \int\frac{x^3-6x^2+5x-3}{x^2-1}\;dx & =\int x-6 + \frac{6x-9}{x^2-1}\;dx \\
+  &  =\int x-6\;dx + \int \frac{6x-9}{x^2-1}\;dx \\
+  &  =\frac{x^2}{2}- 6x  + \int \frac{6x-9}{x^2-1}\;dx. \\
+\end{align*}
+Então aplicamos o método na integral $\int \frac{6x-9}{x^2-1}\;dx$.
+
+1) Como $x^2-1 =(x-1)(x+1)$ temos $\displaystyle \frac{6x-9}{x^2-1}= \frac{A}{x-1}+\frac{B}{x+1}$. Igualando os numeradores temos $6x-9= A(x+1)+B(x-1)$.  Substituindo\\
+$x=1$ temos $6-9=2A$, logo $A=-3/2$;\\
+$x=-1$ temos $-6-9=-2B$, logo $B=15/2$.
+
+2) Usando os valores de $A$ e $B$ na integral temos
+\begin{align*}
+  \int \frac{6x-9}{x^2-1}\;dx &= \int \frac{A}{x-1}+\frac{B}{x+1}\;dx = \int \frac{-3/2}{x-1}+\frac{15/2}{x+1}\;dx \\
+    &= -3/2 \ln|x-1|+15/2\ln|x+1|+C \\
+\end{align*}
+
+3) Voltando à integral original temos
+$$\int\frac{x^3-6x^2+5x-3}{x^2-1}\;dx =\frac{x^2}{2}- 6x  -3/2 \ln|x-1|+15/2\ln|x+1|+C$$
+
+
+c) $\displaystyle\int\frac{4x}{(x+1)(x-1)^2}\;dx$\\
+
+Como a fração no integrando é própria, basta aplicar o método.
+
+1) Note que o denominador tem $(x+1)$ fator de multiplicidade 1 e $(x-1)$ fator de multiplicidade 2, logo a decomposição será
+$\displaystyle \frac{4x}{(x+1)(x-1)^2} = \frac{A}{x+1}+\frac{B}{x-1}+\frac{C}{(x-1)^2}$. Igualando os numeradores, após somar as frações, temos $4x= A(x-1)^2 + B(x-1)(x-1)+C (x+1)$.  
+
+2) Aplicando $x=1$, $x=-1$ e $x=0$ obtemos o sistema
+$$\left\{
+    \begin{array}{ll}
+      A+B, &=0 \\
+      C-2A, & =4 \\
+      C-B+A, & =0
+    \end{array}
+  \right.
+$$
+be onde, $A=-1$, $B=1$e $C=2$. 
+
+3) Aplicando os valores encontrados temos
+\begin{align*}
+  \int \frac{4x}{(x+1)(x-1)^2} \;dx &= \int \frac{A}{x+1}+\frac{B}{x-1}+\frac{C}{(x-1)^2}\;dx = \int -\frac{1}{x+1}+\frac{1}{x-1}+\frac{2}{(x-1)^2}\;dx \\
+    &= -  \ln|x+1|+ \ln|x-1|-\frac{2}{(x-1)}+ C \\
+\end{align*}
+
+\newpage
+\noindent
+    \begin{center}
+    {\Large{\bf Integrais Impróprias}}
+    \end{center}
+\vspace{.5cm}
+As integrais ...
+\end{document}
